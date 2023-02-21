@@ -1,0 +1,85 @@
+Para configurar Visual Studio Code en la terminal con Git Bash, siga los siguientes pasos:
+
+Abra la terminal de Git Bash y navegue hasta el directorio raíz de su proyecto.
+
+Ejecute el siguiente comando para abrir Visual Studio Code:
+
+code .
+
+Si obtiene un error que indica que el comando "code" no se reconoce, debe agregar la ruta de acceso a la instalación de Visual Studio Code a la variable de entorno PATH de su sistema. Para hacerlo, siga los siguientes pasos:
+
+a. Abra Visual Studio Code y abra la paleta de comandos presionando "Ctrl+Shift+P" o "Cmd+Shift+P" en Mac.
+
+b. Escriba "Shell Command: Install 'code' command in PATH" y selecciónelo.
+
+c. Reinicie la terminal de Git Bash.
+
+Si desea configurar la terminal integrada de Visual Studio Code para usar Git Bash en lugar de PowerShell, siga los siguientes pasos:
+
+a. Abra Visual Studio Code y abra la paleta de comandos presionando "Ctrl+Shift+P" o "Cmd+Shift+P" en Mac.
+
+b. Escriba "Terminal: Select Default Shell" y selecciónelo.
+
+c. Seleccione "Git Bash" de la lista de opciones.
+
+d. Abra una nueva terminal integrada presionando "Ctrl+" o "Cmd+" en Mac.
+
+Con estos pasos, debería poder usar Visual Studio Code en la terminal con Git Bash.
+
+Para hacer que se abra Visual Studio Code automáticamente cuando realice un commit en Git Bash, puede seguir los siguientes pasos:
+
+Abra la terminal de Git Bash y navegue hasta el directorio raíz de su proyecto.
+
+Cree un archivo llamado "git-commit-message.txt" con el siguiente comando:
+
+bash
+Copy code
+touch git-commit-message.txt
+Abra el archivo "git-commit-message.txt" en Visual Studio Code con el siguiente comando:
+
+css
+Copy code
+code git-commit-message.txt
+En Visual Studio Code, agregue su mensaje de commit al archivo "git-commit-message.txt".
+
+Guarde y cierre el archivo "git-commit-message.txt".
+
+Cree un nuevo archivo llamado "git-commit.sh" con el siguiente comando:
+
+bash
+Copy code
+touch git-commit.sh
+Abra el archivo "git-commit.sh" en Visual Studio Code con el siguiente comando:
+
+css
+Copy code
+code git-commit.sh
+Agregue el siguiente contenido al archivo "git-commit.sh":
+
+bash
+Copy code
+#!/bin/bash
+
+# Abrir VS Code para ingresar el mensaje del commit
+code --wait git-commit-message.txt
+
+# Hacer el commit con el mensaje del archivo
+git commit -F git-commit-message.txt
+
+# Eliminar el archivo con el mensaje del commit
+rm git-commit-message.txt
+Guarde y cierre el archivo "git-commit.sh".
+
+Haga que el archivo "git-commit.sh" sea ejecutable con el siguiente comando:
+
+bash
+Copy code
+chmod +x git-commit.sh
+Ahora, en lugar de ejecutar "git commit -m 'mensaje del commit'", ejecute el archivo "git-commit.sh" con el siguiente comando:
+bash
+Copy code
+./git-commit.sh
+Con estos pasos, Visual Studio Code se abrirá automáticamente cuando realice un commit en Git Bash y podrá ingresar su mensaje de commit en el editor de texto de Visual Studio Code en lugar de en la línea de comando.
+
+
+
