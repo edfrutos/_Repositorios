@@ -1,0 +1,116 @@
+Aquí te comparto el código HTML, CSS y JavaScript para crear una ventana con fragmentos de código utilizando la librería Prism sin usar jQuery:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .code-window {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            font-family: "Courier New", Courier, monospace;
+            line-height: 1.5;
+          }
+          
+          .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+          }
+          
+          .code-title {
+            margin: 0;
+          }
+          
+          .code-copy-btn {
+            padding: 8px 12px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+          }
+          
+          pre {
+            margin: 0;
+          }
+          
+          pre code {
+            display: block;
+            padding: 10px;
+            background-color: #f5f5f5;
+            color: #333;
+            white-space: pre-wrap;
+          }
+    </style>
+</head>
+<body>
+    <p>
+
+Recuerda agregar el CDN de la librería Prism en el encabezado de tu documento HTML. Espero que te sea útil este código para crear la ventana con fragmentos de código y la opción de copiar al portapapeles.
+    </p>
+    <div class="code-window">
+        <div class="code-header">
+          <h3 class="code-title">Mi código HTML</h3>
+          <button class="code-copy-btn">Copiar</button>
+        </div>
+        <pre><code class="language-css">Tu código aquí... pre code {
+            display: block;
+            padding: 10px;
+            background-color: #f5f5f5;
+            color: #333;
+            white-space: pre-wrap;
+          }</code></pre>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/components/prism-javascript.min.js"></script>
+
+      <script>
+// Seleccionar el botón de copiar
+const copyBtn = document.querySelector(".code-copy-btn");
+
+// Escuchar el evento click en el botón
+copyBtn.addEventListener("click", () => {
+  // Seleccionar el código dentro de la ventana
+  const code = document.querySelector("pre code");
+
+  // Crear un elemento de texto oculto
+  const textArea = document.createElement("textarea");
+  textArea.value = code.innerText;
+  textArea.style.position = "absolute";
+  textArea.style.left = "-9999px";
+  document.body.appendChild(textArea);
+
+  // Seleccionar el texto dentro del elemento de texto
+  textArea.select();
+
+  // Copiar el texto
+  document.execCommand("copy");
+
+  // Remover el elemento de texto
+  document.body.removeChild(textArea);
+
+  // Cambiar el texto del botón a "Copiado!"
+  copyBtn.innerHTML = "Copiado!";
+  setTimeout(() => {
+    copyBtn.innerHTML = "Copiar";
+  }, 2000);
+});
+
+// Inicializar Prism
+Prism.highlightAll();
+      </script>
+</body>
+</html>
+

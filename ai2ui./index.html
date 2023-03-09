@@ -1,0 +1,73 @@
+Aquí tienes el código HTML, CSS y JS básico para que puedas crear una ventana de código utilizando la librería PrismJS:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/components/prism-javascript.min.js"></script>
+
+    <style>
+/* Estilos base para la ventana de código */
+.code-window {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1.5rem 1rem;
+    background-color: #F8F8F8;
+    border-radius: 6px;
+    overflow: auto;
+  }
+  
+  /* Estilos para el código dentro de la ventana */
+  .code-window pre {
+    margin: 0;
+  }
+  
+  /* Estilos específicos de Prism para el código */
+  /* Sustituye 'language-javascript' por el lenguaje que quieras resaltar */
+  .code-window pre code[class*="language-"] {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.4em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    color: #333;
+    background: none;
+    padding: 0;
+    border: none;
+  }
+  
+  /* Estilos para los números de línea */
+  /* Ajusta los colores y los tamaños a tu gusto */
+  .code-window pre .line-numbers {
+    display: inline-block;
+    width: 2em;
+    font-size: 14px;
+    color: #999;
+    text-align: right;
+    padding-right: 1em;
+    margin-right: 1em;
+    border-right: 1px solid #EFEFEF;
+  }
+    </style>
+</head>
+<body>
+    <p>
+
+Recuerda que debes cambiar el valor "language-javascript" según el lenguaje que desees resaltar. Además, puedes añadir más estilos para personalizar la apariencia a tu gusto.
+    </p>
+    <div class="code-window">
+        <pre><code class="language-html">Tu código aquí</code></pre>
+      </div>
+
+</body>
+</html>
+
+
