@@ -1,0 +1,97 @@
+Aquí tienes una solución que utiliza HTML, CSS y JavaScript. Crea una ventana modal que muestra un texto HTML que se puede copiar en el portapapeles.
+<style>
+    #modal-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #modal {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        position: relative;
+        width: 500px;
+      }
+      
+      #modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      #close-modal {
+        font-size: 30px;
+        cursor: pointer;
+      }
+      
+      #modal-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      #html-code {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+      }
+      
+      #copy-button {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      
+      #copy-button:hover {
+        background-color: #3e8e41;
+      }
+</style>
+<button id="show-modal">Mostrar ventana modal</button>
+<div id="modal-bg">
+  <div id="modal">
+    <div id="modal-header">
+      <h2>Fragmento de código HTML</h2>
+      <button id="close-modal">&times;</button>
+    </div>
+    <div id="modal-body">
+      <textarea id="html-code"></textarea>
+      <button id="copy-button">Copiar al portapapeles</button>
+    </div>
+  </div>
+</div>
+<script>
+// Obtener los elementos del DOM
+const showModalButton = document.getElementById('show-modal');
+const modalBg = document.getElementById('modal-bg');
+const closeModalButton = document.getElementById('close-modal');
+const htmlCodeTextarea = document.getElementById('html-code');
+const copyButton = document.getElementById('copy-button');
+
+// Mostrar la ventana modal
+showModalButton.addEventListener('click', () => {
+  modalBg.style.display = 'flex';
+});
+
+// Ocultar la ventana modal
+closeModalButton.addEventListener('click', () => {
+  modalBg.style.display = 'none';
+});
+
+// Copiar el código HTML al portapapeles
+copyButton.addEventListener('click', () => {
+  htmlCodeTextarea.select();
+  document.execCommand("copy");
+});
+</script>

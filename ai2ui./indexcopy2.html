@@ -1,4 +1,3 @@
-Aquí te comparto el código HTML, CSS y JavaScript para crear una ventana con fragmentos de código utilizando la librería Prism sin usar jQuery:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,9 @@ Aquí te comparto el código HTML, CSS y JavaScript para crear una ventana con f
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/components/prism-javascript.min.js"></script>
+
     <style>
         .code-window {
             position: relative;
@@ -64,18 +66,12 @@ Recuerda agregar el CDN de la librería Prism en el encabezado de tu documento H
           <h3 class="code-title">Mi código HTML</h3>
           <button class="code-copy-btn">Copiar</button>
         </div>
-        <pre><code class="language-css">Tu código aquí... pre code {
-            display: block;
-            padding: 10px;
-            background-color: #f5f5f5;
-            color: #333;
-            white-space: pre-wrap;
-          }</code></pre>
+        <pre><code class="language-html">Tu código aquí... 
+          <textarea name="" id="" cols="30" rows="10"><pre><code></code></pre></textarea>
+            
+          </code></pre>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/components/prism-javascript.min.js"></script>
-
+      
       <script>
 // Seleccionar el botón de copiar
 const copyBtn = document.querySelector(".code-copy-btn");
